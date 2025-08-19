@@ -5,55 +5,58 @@ import Button from '../components/Button';
 const Services = () => {
   const services = [
     {
-      icon: '🛠️',
-      title: 'Landing Pages',
-      price: '$50',
-      description: 'High-converting single-page sites with smooth scroll, clean CTA, and responsive layout. Ideal for SaaS, personal brands, or products.',
-      deliveryTime: '3-5 days',
-      tools: ['React', 'Tailwind CSS', 'Framer Motion'],
-      features: ['Responsive design', 'Fast loading', 'SEO optimized', 'Contact forms']
+      icon: '�',
+      title: 'Mobile App Development',
+      price: '$300 - $800',
+      description: 'Cross-platform mobile apps using Flutter. From ride-booking apps to social platforms and e-learning systems.',
+      deliveryTime: '2-4 weeks',
+      tools: ['Flutter', 'Dart', 'Firebase', 'GetX'],
+      features: ['Cross-platform', 'Real-time features', 'Push notifications', 'Offline support']
     },
     {
       icon: '🌐',
-      title: 'Multi-Page Websites',
-      price: '$120',
-      description: 'Complete sites with 3–5 pages (e.g., Home, About, Services, Projects, Contact). Designed for small businesses or creators.',
-      deliveryTime: '1-2 weeks',
-      tools: ['React', 'React Router', 'Tailwind CSS', 'TypeScript'],
-      features: ['Multiple pages', 'Navigation system', 'CMS integration', 'Mobile friendly']
+      title: 'Full-Stack Web Development',
+      price: '$400 - $1200',
+      description: 'Complete web applications using MERN stack or Laravel. E-commerce, SaaS platforms, and business management systems.',
+      deliveryTime: '2-6 weeks',
+      tools: ['Laravel', 'MERN Stack', 'Vue.js', 'MySQL', 'MongoDB'],
+      features: ['Admin panels', 'User authentication', 'API development', 'Database design']
+    },
+    {
+      icon: '�',
+      title: 'SaaS Development',
+      price: '$800 - $2000',
+      description: 'Software as a Service platforms with subscription models, real-time insights, and multi-tenant architecture.',
+      deliveryTime: '4-8 weeks',
+      tools: ['Laravel', 'Vue.js', 'MySQL', 'Stripe', 'WebSockets'],
+      features: ['Multi-tenancy', 'Subscription billing', 'Real-time dashboards', 'API integration']
+    },
+    {
+      icon: '🎓',
+      title: 'E-Learning Platforms',
+      price: '$600 - $1500',
+      description: 'Learning Management Systems with course creation, instructor monetization, and mobile apps.',
+      deliveryTime: '3-6 weeks',
+      tools: ['Flutter', 'Laravel', 'Firebase', 'Payment Gateways'],
+      features: ['Course marketplace', 'Video streaming', 'Progress tracking', 'Certification']
     },
     {
       icon: '🎨',
-      title: 'Portfolio Sites',
-      price: '$80',
-      description: 'Personal websites for developers, designers, or freelancers. Showcases projects, skills, and contact info.',
-      deliveryTime: '4-7 days',
-      tools: ['React', 'Tailwind CSS', 'React Router'],
-      features: ['Project gallery', 'About section', 'Skills showcase', 'Contact form']
+      title: 'Presentation Design',
+      price: '$15 - $50',
+      description: 'Professional business and academic presentations with modern layouts, branding, and creative elements.',
+      deliveryTime: '1-3 days',
+      tools: ['PowerPoint', 'Figma', 'Canva', 'Adobe Creative Suite'],
+      features: ['Custom layouts', 'Brand consistency', 'Interactive elements', 'Multiple formats']
     },
     {
-      icon: '📊',
-      title: 'Admin Dashboards',
-      price: '$150',
-      description: 'Dashboard UIs with reusable components (sidebar, cards, tables, charts). Built with Tailwind and React.',
-      deliveryTime: '2-3 weeks',
-      tools: ['React', 'Tailwind CSS', 'Chart.js', 'React Query'],
-      features: ['Data visualization', 'Responsive tables', 'Interactive charts', 'User management']
-    },
-    {
-      icon: '🧠',
-      title: 'Website Redesign',
-      price: '$60 – $120',
-      description: 'Modernize outdated websites with a fresh frontend rebuild. Ideal for businesses or creators who already have a site but want a cleaner, faster, and mobile-friendly version.',
-      deliveryTime: '3–6 days',
-      tools: ['React', 'Tailwind CSS', 'Framer Motion'],
-      features: [
-        'Responsive redesign',
-        'Clean, modern layout',
-        'Faster performance',
-        'No backend changes',
-        'SEO optimized'
-      ]
+      icon: '🔧',
+      title: 'Server & DevOps Setup',
+      price: '$100 - $300',
+      description: 'Server configuration, SSL setup, domain management, cPanel/aaPanel setup, and deployment automation.',
+      deliveryTime: '1-2 weeks',
+      tools: ['Ubuntu', 'Apache', 'cPanel', 'Cloudflare', 'SSL'],
+      features: ['Server optimization', 'SSL certificates', 'Domain setup', 'Backup solutions']
     }
   ];
 
@@ -63,11 +66,29 @@ const Services = () => {
       <section className="pt-16 pb-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-4xl font-bold text-slate-900 mb-6">
-            Services
+            Services & Freelance Offerings
           </h1>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-            From concept to launch, I help bring your digital vision to life with clean design and modern development
+          <p className="text-xl text-slate-600 max-w-2xl mx-auto mb-4">
+            3+ years experience in full-stack development, mobile apps, SaaS platforms, and creative services. Specializing in Flutter, Laravel, MERN stack, and modern web technologies.
           </p>
+          <div className="flex flex-wrap justify-center gap-4 mb-2">
+            <a
+              href="https://www.upwork.com/freelancers/~017010af70d435bc3f"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-4 py-2 bg-green-600 text-white rounded-lg font-semibold hover:bg-green-700 transition-colors"
+            >
+              Upwork Profile
+            </a>
+            <a
+              href="https://www.fiverr.com/alvysamy/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block px-4 py-2 bg-[#1dbf73] text-white rounded-lg font-semibold hover:bg-[#159c5b] transition-colors"
+            >
+              Fiverr Profile
+            </a>
+          </div>
         </div>
       </section>
 
@@ -140,10 +161,10 @@ const Services = () => {
                 1
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                Consultation
+                Discovery & Planning
               </h3>
               <p className="text-slate-600">
-                We discuss your needs, goals, and vision for the project
+                We analyze your requirements, define the tech stack, and create a detailed project roadmap
               </p>
             </div>
             <div className="text-center">
@@ -151,10 +172,10 @@ const Services = () => {
                 2
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                Design & Build
+                Development & Testing
               </h3>
               <p className="text-slate-600">
-                I create and develop your project with regular updates
+                I build your solution using modern frameworks with regular updates and thorough testing
               </p>
             </div>
             <div className="text-center">
@@ -162,10 +183,10 @@ const Services = () => {
                 3
               </div>
               <h3 className="text-lg font-semibold text-slate-900 mb-2">
-                Launch
+                Deployment & Support
               </h3>
               <p className="text-slate-600">
-                Your project goes live with ongoing support as needed
+                Your project goes live with server setup, SSL configuration, and ongoing maintenance
               </p>
             </div>
           </div>

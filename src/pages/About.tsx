@@ -5,43 +5,39 @@ import Card from '../components/Card';
 
 const About = () => {
   const skills = [
-    { name: 'Flutter', level: 'Advanced' },
-    { name: 'Dart', level: 'Advanced' },
-    { name: 'Java', level: 'Intermediate' },
-    { name: 'Kotlin', level: 'Intermediate' },
-    { name: 'C#', level: 'Intermediate' },
-    { name: 'C++', level: 'Intermediate' },
-    { name: 'Laravel', level: 'Advanced' },
-    { name: 'Node.js', level: 'Intermediate' },
-    { name: 'React', level: 'Intermediate' },
-    { name: 'MERN Stack', level: 'Intermediate' },
-    { name: 'PHP', level: 'Intermediate' },
-    { name: 'MySQL', level: 'Intermediate' },
-    { name: 'Firebase', level: 'Intermediate' },
-    { name: 'Xamarin', level: 'Beginner' },
-    { name: 'Django', level: 'Beginner' },
-    { name: 'Cybersecurity', level: 'Fundamentals' },
-    { name: 'AI Integration', level: 'Intermediate' },
-    { name: 'API Development', level: 'Intermediate' },
-    { name: 'Presentation Design', level: 'Advanced' },
-    { name: 'Server & Cloud', level: 'Intermediate' },
+    { name: 'Flutter', level: 'Advanced', icon: '📱', color: 'from-blue-500 to-cyan-500' },
+    { name: 'Dart', level: 'Advanced', icon: '🎯', color: 'from-blue-600 to-blue-700' },
+    { name: 'Laravel', level: 'Advanced', icon: '🚀', color: 'from-red-500 to-orange-500' },
+    { name: 'MERN Stack', level: 'Intermediate', icon: '⚛️', color: 'from-green-500 to-teal-500' },
+    { name: 'React', level: 'Intermediate', icon: '⚛️', color: 'from-cyan-500 to-blue-500' },
+    { name: 'Node.js', level: 'Intermediate', icon: '🟢', color: 'from-green-600 to-green-700' },
+    { name: 'PHP', level: 'Intermediate', icon: '🐘', color: 'from-purple-500 to-indigo-500' },
+    { name: 'MySQL', level: 'Intermediate', icon: '🗄️', color: 'from-orange-500 to-yellow-500' },
+    { name: 'Firebase', level: 'Intermediate', icon: '🔥', color: 'from-yellow-500 to-orange-500' },
+    { name: 'Java', level: 'Intermediate', icon: '☕', color: 'from-red-600 to-red-700' },
+    { name: 'Kotlin', level: 'Intermediate', icon: '🤖', color: 'from-purple-600 to-pink-600' },
+    { name: 'API Development', level: 'Intermediate', icon: '🔌', color: 'from-indigo-500 to-purple-500' },
+    { name: 'Server & Cloud', level: 'Intermediate', icon: '☁️', color: 'from-gray-500 to-slate-600' },
+    { name: 'Cybersecurity', level: 'Fundamentals', icon: '🔐', color: 'from-red-500 to-pink-500' },
+    { name: 'AI Integration', level: 'Intermediate', icon: '🤖', color: 'from-purple-500 to-blue-500' },
+    { name: 'Presentation Design', level: 'Advanced', icon: '🎨', color: 'from-pink-500 to-rose-500' },
   ];
 
   const workflow = [
     {
       step: '1',
-      title: 'Consultation & Planning',
-      description: 'Discuss project goals, requirements, and vision. Plan architecture and tech stack.'
+      title: 'Requirements Analysis',
+      description: 'Comprehensive project assessment, technical requirements gathering, and solution architecture planning.'
     },
     {
       step: '2',
-      title: 'Design & Development',
-      description: 'Build web and mobile apps using modern frameworks, with a focus on security and performance.'
+      title: 'Development & Implementation',
+      description: 'Agile development using modern frameworks with continuous integration, testing, and client communication.'
     },
     {
       step: '3',
-      title: 'Testing & Launch',
-      description: 'Test, deploy, and provide ongoing support for your project.'
+      title: 'Deployment & Maintenance',
+      description: 'Production deployment, performance optimization, and ongoing technical support and maintenance.'
     }
   ];
 
@@ -54,7 +50,7 @@ const About = () => {
             About Me
           </h1>
           <p className="text-xl text-slate-600">
-            Web & App Developer | Cybersecurity Student | Tech Enthusiast
+            Full-Stack Developer | Cybersecurity Student | Technology Specialist
           </p>
         </div>
       </section>
@@ -64,23 +60,23 @@ const About = () => {
         <div className="max-w-3xl mx-auto">
           <Card className="p-8">
             <h2 className="text-2xl font-bold text-slate-900 mb-6">
-              Who I Am
+              Professional Background
             </h2>
             <div className="prose text-slate-600 leading-relaxed space-y-4">
               <p>
-                Hi! I'm <b>Samyak Chaudahry</b>, a passionate developer with 3+ years of experience in full-stack web and mobile app development, and 2+ years as a freelancer. I love building SaaS products, AI-powered apps, and exploring cybersecurity and creative storytelling.
+                I am <b>Samyak Chaudhary</b>, a dedicated full-stack developer with over 3 years of experience in web and mobile application development, complemented by 2+ years of successful freelancing. I specialize in creating scalable SaaS solutions, cross-platform mobile applications, and enterprise-grade web systems.
               </p>
               <p>
-                <b>Education:</b> Currently pursuing Bachelor of Computer Science & IT (Cybersecurity and Networking) at Lincoln University College, Malaysia (1st Semester, 130 credit hours total).
+                <b>Education:</b> Currently pursuing Bachelor of Computer Science & IT with a specialization in Cybersecurity and Networking at Lincoln University College, Malaysia. This academic foundation strengthens my technical expertise in secure application development.
               </p>
               <p>
-                <b>Location:</b> Kathmandu, Nepal (studying in Malaysia)
+                <b>Professional Focus:</b> My expertise spans Flutter mobile development, Laravel web applications, MERN stack solutions, and modern DevOps practices. I have successfully delivered projects ranging from taxi booking systems to e-learning platforms and financial management software.
               </p>
               <p>
-                <b>Languages:</b> English, Nepali, Hindi
+                <b>Technical Competencies:</b> Cross-platform mobile development, full-stack web development, SaaS architecture, API design, database optimization, server configuration, and cybersecurity implementation.
               </p>
               <p>
-                <b>Interests:</b> Building SaaS products, AI-powered apps, cybersecurity, creative storytelling, and exploring authentic places.
+                <b>Location:</b> Based in Kathmandu, Nepal, with international study experience in Malaysia. Available for remote collaboration worldwide.
               </p>
             </div>
           </Card>
@@ -92,10 +88,10 @@ const About = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              My Workflow
+              Development Process
             </h2>
             <p className="text-lg text-slate-600">
-              How I bring ideas to life through design, development, and deployment
+              My systematic approach to delivering high-quality software solutions
             </p>
           </div>
 
@@ -118,30 +114,81 @@ const About = () => {
       </section>
 
       {/* Skills Section */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-slate-900 mb-4">
-              Skills & Tools
+      <section className="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-slate-50 via-white to-indigo-50">
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold bg-gradient-to-r from-slate-900 via-indigo-900 to-slate-900 bg-clip-text text-transparent mb-6">
+              Technical Expertise
             </h2>
-            <p className="text-lg text-slate-600">
-              Technologies and tools I use to create amazing web and app experiences
+            <p className="text-xl text-slate-600 max-w-3xl mx-auto">
+              Core technologies and frameworks I leverage to build robust software solutions
             </p>
+            <div className="w-24 h-1 bg-gradient-to-r from-indigo-500 to-purple-500 mx-auto mt-6 rounded-full"></div>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
             {skills.map((skill, index) => (
-              <Card key={index} className="p-6">
-                <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-medium text-slate-900">
+              <div
+                key={index}
+                className="group relative overflow-hidden rounded-2xl bg-white shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-105"
+              >
+                {/* Animated background gradient */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}></div>
+                
+                {/* Glowing border effect */}
+                <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${skill.color} opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`}></div>
+                
+                <div className="relative p-6">
+                  {/* Icon with animated background */}
+                  <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-2xl bg-gradient-to-br from-slate-100 to-slate-200 group-hover:from-white group-hover:to-slate-100 transition-all duration-500 transform group-hover:scale-110 group-hover:rotate-6">
+                    <span className="text-2xl transform transition-transform duration-500 group-hover:scale-125">
+                      {skill.icon}
+                    </span>
+                  </div>
+                  
+                  {/* Skill name */}
+                  <h3 className="text-lg font-bold text-slate-900 text-center mb-3 group-hover:text-indigo-900 transition-colors duration-300">
                     {skill.name}
                   </h3>
-                  <span className="text-sm text-indigo-600 font-medium">
-                    {skill.level}
-                  </span>
+                  
+                  {/* Level badge */}
+                  <div className="flex justify-center">
+                    <span className={`inline-flex items-center px-4 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all duration-300 ${
+                      skill.level === 'Advanced' 
+                        ? 'bg-gradient-to-r from-green-100 to-emerald-100 text-green-800 group-hover:from-green-200 group-hover:to-emerald-200' 
+                        : skill.level === 'Intermediate'
+                        ? 'bg-gradient-to-r from-blue-100 to-indigo-100 text-blue-800 group-hover:from-blue-200 group-hover:to-indigo-200'
+                        : 'bg-gradient-to-r from-orange-100 to-yellow-100 text-orange-800 group-hover:from-orange-200 group-hover:to-yellow-200'
+                    }`}>
+                      {skill.level}
+                    </span>
+                  </div>
+                  
+                  {/* Progress bar */}
+                  <div className="mt-4 w-full bg-slate-200 rounded-full h-2 overflow-hidden">
+                    <div 
+                      className={`h-full bg-gradient-to-r ${skill.color} rounded-full transition-all duration-1000 transform origin-left ${
+                        skill.level === 'Advanced' ? 'w-full' : skill.level === 'Intermediate' ? 'w-3/4' : 'w-1/2'
+                      } group-hover:scale-x-110`}
+                    ></div>
+                  </div>
                 </div>
-              </Card>
+                
+                {/* Shine effect */}
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+                  <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-r from-transparent via-white/10 to-transparent transform -skew-x-12 -translate-x-full group-hover:translate-x-full transition-transform duration-700"></div>
+                </div>
+              </div>
             ))}
+          </div>
+          
+          {/* Bottom decorative element */}
+          <div className="flex justify-center mt-12">
+            <div className="flex space-x-2">
+              {[...Array(5)].map((_, i) => (
+                <div key={i} className={`w-3 h-3 rounded-full bg-gradient-to-r from-indigo-400 to-purple-500 animate-pulse`} style={{animationDelay: `${i * 200}ms`}}></div>
+              ))}
+            </div>
           </div>
         </div>
       </section>

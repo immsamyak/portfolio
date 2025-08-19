@@ -8,10 +8,17 @@ const Footer = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="text-slate-600 mb-4 md:mb-0">
-            © {currentYear} Samyak.. All rights reserved.
+            © {currentYear} Samyak Chaudahry. All rights reserved.
           </div>
           
-          <div className="flex space-x-6">
+          <div className="flex space-x-6 items-center">
+            <a
+              href="/projects"
+              className="text-slate-600 hover:text-indigo-600 transition-colors font-semibold"
+              aria-label="View all projects"
+            >
+              Projects
+            </a>
             <a
               href="https://github.com/immsamyak"
               target="_blank"
