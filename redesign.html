@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Samyak Chaudhary — Full-Stack Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--canvas:#e5e7eb;--charcoal:#000000;--snow:#ffffff;--steel:#a3a3a3;
+--ash:#191919;--mercury:#c2c2c2;--powder:#dddee2;--sage:#d7cdb8;
+--amber:#ff6c2f;--sans:'Inter',sans-serif;--mono:'JetBrains Mono',monospace;
+--section-gap:40px;--card-pad:12px;--el-gap:8px;
+}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);font-weight:400;font-size:16px;line-height:1.5;
+background:var(--canvas);color:var(--charcoal);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;
+background:var(--charcoal);padding:16px 32px;
+display:flex;align-items:center;justify-content:space-between;
+backdrop-filter:blur(12px)}
+nav .logo{font-family:var(--mono);font-size:14px;color:var(--snow);letter-spacing:-0.02em}
+nav ul{display:flex;gap:24px;list-style:none}
+nav ul li a{font-family:var(--mono);font-size:12px;color:var(--steel);
+transition:color .2s}
+nav ul li a:hover,nav ul li a.active{color:var(--snow)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;
+justify-content:center;align-items:center;text-align:center;
+padding:120px 32px 80px;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:-200px;right:-200px;
+width:600px;height:600px;background:radial-gradient(circle,var(--sage) 0%,transparent 70%);
+opacity:.3;filter:blur(100px)}
+.hero h1{font-size:clamp(48px,10vw,100px);line-height:.85;
+letter-spacing:-0.03em;margin-bottom:24px}
+.hero .subtitle{font-size:18px;line-height:1.4;color:var(--steel);
+max-width:560px;margin-bottom:40px}
+.hero .cta-row{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+
+/* BUTTONS */
+.btn-primary{background:var(--charcoal);color:var(--snow);
+border-radius:24px;padding:14px 24px;font-family:var(--sans);font-size:16px;
+border:none;cursor:pointer;transition:opacity .2s}
+.btn-primary:hover{opacity:.85}
+.btn-amber{background:var(--amber);color:var(--snow);
+border-radius:24px;padding:14px 24px;font-family:var(--sans);font-size:16px;
+border:none;cursor:pointer;transition:opacity .2s}
+.btn-amber:hover{opacity:.85}
+.btn-ghost{background:transparent;color:var(--charcoal);
+border:1px solid var(--steel);border-radius:0;padding:8px 16px;
+font-family:var(--mono);font-size:14px;cursor:pointer;transition:border-color .2s}
+.btn-ghost:hover{border-color:var(--charcoal)}
+
+/* SECTIONS */
+section{padding:80px 32px}
+.section-title{font-size:24px;line-height:1.2;letter-spacing:-0.02em;margin-bottom:8px}
+.section-sub{font-size:14px;color:var(--steel);font-family:var(--mono);margin-bottom:40px}
+.container{max-width:1080px;margin:0 auto}
+
+/* STATS */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--el-gap);
+margin-top:48px}
+.stat{text-align:center;padding:24px var(--card-pad)}
+.stat .num{font-size:32px;letter-spacing:-0.02em;margin-bottom:4px}
+.stat .label{font-family:var(--mono);font-size:12px;color:var(--steel)}
+
+/* ABOUT */
+.about-section{background:var(--snow)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start}
+.about-text p{font-size:16px;line-height:1.5;color:var(--charcoal);margin-bottom:16px}
+.about-text p strong{font-weight:400;color:var(--charcoal)}
+.meta-list{list-style:none;margin-top:24px}
+.meta-list li{font-family:var(--mono);font-size:12px;color:var(--steel);
+padding:8px 0;border-bottom:1px solid var(--powder)}
+.meta-list li span{color:var(--charcoal);float:right}
+
+/* SKILLS */
+.skills-grid{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tag{font-family:var(--mono);font-size:12px;padding:6px 12px;
+background:var(--snow);border:1px solid var(--mercury)}
+
+/* SERVICES */
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px}
+.service-card{padding:24px;border-bottom:1px solid var(--mercury)}
+.service-card h3{font-size:18px;line-height:1.4;margin-bottom:8px}
+.service-card p{font-size:14px;color:var(--steel);line-height:1.5;margin-bottom:12px}
+.service-card .price{font-family:var(--mono);font-size:12px;color:var(--amber)}
+.service-card .tools{font-family:var(--mono);font-size:11px;color:var(--steel);margin-top:8px}
+
+/* PROJECTS */
+.projects-section{background:var(--snow)}
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:24px}
+.project-card{padding:0;border-bottom:1px solid var(--mercury);padding-bottom:24px}
+.project-card .cat{font-family:var(--mono);font-size:11px;color:var(--amber);
+text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px}
+.project-card h3{font-size:20px;line-height:1.25;margin-bottom:8px}
+.project-card p{font-size:14px;color:var(--steel);line-height:1.5;margin-bottom:12px}
+.project-card .tech{font-family:var(--mono);font-size:11px;color:var(--steel)}
+
+/* PROCESS */
+.process-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.process-step .num{font-size:48px;line-height:.85;letter-spacing:-0.03em;
+color:var(--mercury);margin-bottom:12px}
+.process-step h3{font-size:16px;margin-bottom:8px}
+.process-step p{font-size:14px;color:var(--steel);line-height:1.5}
+
+/* CONTACT */
+.contact-section{background:var(--ash);color:var(--snow)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px}
+.contact-info a{display:block;font-family:var(--mono);font-size:14px;
+color:var(--steel);padding:8px 0;border-bottom:1px solid #333;transition:color .2s}
+.contact-info a:hover{color:var(--snow)}
+.contact-form input,.contact-form textarea{width:100%;background:transparent;
+border:none;border-bottom:1px solid var(--steel);color:var(--snow);
+font-family:var(--mono);font-size:14px;padding:12px 0;outline:none;
+transition:border-color .2s;margin-bottom:24px}
+.contact-form input::placeholder,.contact-form textarea::placeholder{color:var(--steel)}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--snow)}
+.contact-form textarea{resize:vertical;min-height:100px}
+
+/* FOOTER */
+footer{background:var(--charcoal);color:var(--steel);padding:24px 32px;
+text-align:center;font-family:var(--mono);font-size:12px}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  nav ul{gap:16px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr}
+  section{padding:60px 20px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">samyak.dev</div>
+  <ul>
+    <li><a href="#about">about</a></li>
+    <li><a href="#skills">skills</a></li>
+    <li><a href="#services">services</a></li>
+    <li><a href="#projects">projects</a></li>
+    <li><a href="#contact">contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Samyak<br>Chaudhary</h1>
+  <p class="subtitle">Full-Stack Developer and Technology Specialist building cross-platform mobile apps, enterprise SaaS, and modern web systems.</p>
+  <div class="cta-row">
+    <a href="#contact" class="btn-amber">Start a project</a>
+    <a href="#projects" class="btn-ghost">View work</a>
+  </div>
+  <div class="stats">
+    <div class="stat"><div class="num">15+</div><div class="label">Projects Delivered</div></div>
+    <div class="stat"><div class="num">3+</div><div class="label">Years Experience</div></div>
+    <div class="stat"><div class="num">50+</div><div class="label">Happy Clients</div></div>
+    <div class="stat"><div class="num">5.0</div><div class="label">Average Rating</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-section" id="about">
+  <div class="container">
+    <div class="section-sub">// about</div>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>I am Samyak Chaudhary, a dedicated full-stack developer with over 3 years of experience in web and mobile application development, complemented by 2+ years of successful freelancing.</p>
+        <p>I specialize in creating scalable SaaS solutions, cross-platform mobile applications, and enterprise-grade web systems. Currently pursuing Bachelor of Computer Science with a specialization in Cybersecurity and Networking at Lincoln University College, Malaysia.</p>
+        <p>My expertise spans Flutter mobile development, Laravel web applications, MERN stack solutions, and modern DevOps practices. I have successfully delivered projects ranging from taxi booking systems to e-learning platforms and financial management software.</p>
+      </div>
+      <div>
+        <ul class="meta-list">
+          <li>Location <span>Kathmandu, Nepal</span></li>
+          <li>Study <span>Malaysia</span></li>
+          <li>Focus <span>Cybersecurity</span></li>
+          <li>Experience <span>3+ years</span></li>
+          <li>Availability <span>Remote worldwide</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="container">
+    <div class="section-sub">// technical expertise</div>
+    <h2 class="section-title">Core Technologies</h2>
+    <div class="skills-grid" style="margin-top:24px">
+      <span class="skill-tag">Flutter</span>
+      <span class="skill-tag">Dart</span>
+      <span class="skill-tag">Laravel</span>
+      <span class="skill-tag">React</span>
+      <span class="skill-tag">Node.js</span>
+      <span class="skill-tag">MERN Stack</span>
+      <span class="skill-tag">PHP</span>
+      <span class="skill-tag">MySQL</span>
+      <span class="skill-tag">MongoDB</span>
+      <span class="skill-tag">Firebase</span>
+      <span class="skill-tag">Java</span>
+      <span class="skill-tag">Kotlin</span>
+      <span class="skill-tag">Vue.js</span>
+      <span class="skill-tag">API Development</span>
+      <span class="skill-tag">Server &amp; Cloud</span>
+      <span class="skill-tag">Cybersecurity</span>
+      <span class="skill-tag">AI Integration</span>
+      <span class="skill-tag">WebSockets</span>
+      <span class="skill-tag">GetX</span>
+      <span class="skill-tag">Stripe</span>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" style="background:var(--snow)">
+  <div class="container">
+    <div class="section-sub">// services</div>
+    <h2 class="section-title">What I Build</h2>
+    <div class="services-grid" style="margin-top:24px">
+      <div class="service-card">
+        <h3>Mobile App Development</h3>
+        <p>Cross-platform mobile apps using Flutter. From ride-booking apps to social platforms and e-learning systems.</p>
+        <div class="price">$300 - $800 / 2-4 weeks</div>
+        <div class="tools">Flutter, Dart, Firebase, GetX</div>
+      </div>
+      <div class="service-card">
+        <h3>Full-Stack Web Development</h3>
+        <p>Complete web applications using MERN stack or Laravel. E-commerce, SaaS platforms, and business management systems.</p>
+        <div class="price">$400 - $1200 / 2-6 weeks</div>
+        <div class="tools">Laravel, MERN, Vue.js, MySQL, MongoDB</div>
+      </div>
+      <div class="service-card">
+        <h3>SaaS Development</h3>
+        <p>Software as a Service platforms with subscription models, real-time insights, and multi-tenant architecture.</p>
+        <div class="price">$800 - $2000 / 4-8 weeks</div>
+        <div class="tools">Laravel, Vue.js, MySQL, Stripe, WebSockets</div>
+      </div>
+      <div class="service-card">
+        <h3>E-Learning Platforms</h3>
+        <p>Learning Management Systems with course creation, instructor monetization, and mobile apps.</p>
+        <div class="price">$600 - $1500 / 3-6 weeks</div>
+        <div class="tools">Flutter, Laravel, Firebase, Payment Gateways</div>
+      </div>
+      <div class="service-card">
+        <h3>Presentation Design</h3>
+        <p>Professional business and academic presentations with modern layouts, branding, and creative elements.</p>
+        <div class="price">$15 - $50 / 1-3 days</div>
+        <div class="tools">PowerPoint, Figma, Canva</div>
+      </div>
+      <div class="service-card">
+        <h3>Server &amp; DevOps Setup</h3>
+        <p>Server configuration, SSL setup, domain management, cPanel/aaPanel setup, and deployment automation.</p>
+        <div class="price">$100 - $300 / 1-2 weeks</div>
+        <div class="tools">Ubuntu, Apache, cPanel, Cloudflare, SSL</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="projects-section" id="projects">
+  <div class="container">
+    <div class="section-sub">// selected work</div>
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid" style="margin-top:24px">
+      <div class="project-card">
+        <div class="cat">Mobile App</div>
+        <h3>Khari Ride</h3>
+        <p>Complete taxi ecosystem with driver and customer apps, real-time tracking, and payment integration.</p>
+        <div class="tech">Flutter / Firebase / Dart / Google Maps</div>
+      </div>
+      <div class="project-card">
+        <div class="cat">SaaS Platform</div>
+        <h3>PubFlow</h3>
+        <p>Enterprise financial management platform with POS integration, real-time analytics, and multi-tenant architecture.</p>
+        <div class="tech">Laravel / Vue.js / MySQL / WebSockets</div>
+      </div>
+      <div class="project-card">
+        <div class="cat">EdTech</div>
+        <h3>Mero Learning LMS</h3>
+        <p>Full-featured e-learning ecosystem with course marketplace, instructor monetization, and cross-platform access.</p>
+        <div class="tech">Flutter / Laravel / Firebase / Stripe</div>
+      </div>
+      <div class="project-card">
+        <div class="cat">Web App</div>
+        <h3>ISCILLA</h3>
+        <p>Multi-professional networking platform for startup founders and independent artists.</p>
+        <div class="tech">MERN Stack / Node.js / React</div>
+      </div>
+      <div class="project-card">
+        <div class="cat">Mobile App</div>
+        <h3>Apartment Management System</h3>
+        <p>Flutter mobile app with Laravel admin panel for apartment management.</p>
+        <div class="tech">Flutter / Laravel</div>
+      </div>
+      <div class="project-card">
+        <div class="cat">Web App</div>
+        <h3>E-commerce Platform</h3>
+        <p>MERN stack based e-commerce platform with full shopping features.</p>
+        <div class="tech">MERN Stack / Node.js / React</div>
+      </div>
+      <div class="project-card">
+        <div class="cat">Web App</div>
+        <h3>SMS Platform for Nepal</h3>
+        <p>Bulk SMS, scheduling, and OTP APIs for businesses in Nepal.</p>
+        <div class="tech">Laravel / PHP / MySQL</div>
+      </div>
+      <div class="project-card">
+        <div class="cat">Mobile App</div>
+        <h3>Social Platform</h3>
+        <p>Flutter + Laravel app with posts, likes, comments, voice messages, and interest-based features.</p>
+        <div class="tech">Flutter / Laravel</div>
+      </div>
+      <div class="project-card">
+        <div class="cat">Mobile App</div>
+        <h3>Exam Simulation System</h3>
+        <p>OMR navigation, timer, past papers, real-time scores, and leaderboard.</p>
+        <div class="tech">Flutter / GetX / Firebase</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="container">
+    <div class="section-sub">// how it works</div>
+    <h2 class="section-title">Development Process</h2>
+    <div class="process-grid" style="margin-top:24px">
+      <div class="process-step">
+        <div class="num">01</div>
+        <h3>Discovery and Planning</h3>
+        <p>Requirements analysis, technical assessment, solution architecture, and detailed project roadmap.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">02</div>
+        <h3>Development and Testing</h3>
+        <p>Agile development using modern frameworks with continuous integration, testing, and client communication.</p>
+      </div>
+      <div class="process-step">
+        <div class="num">03</div>
+        <h3>Deployment and Support</h3>
+        <p>Production deployment, performance optimization, server setup, and ongoing technical maintenance.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="container">
+    <div class="section-sub" style="color:var(--steel)">// get in touch</div>
+    <h2 class="section-title" style="color:var(--snow);margin-bottom:32px">Start a Project</h2>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <p style="color:var(--steel);margin-bottom:24px;font-size:16px;line-height:1.5">Have a project in mind? Let's discuss how we can work together. Quick response within 24 hours.</p>
+        <a href="mailto:samyakchy1@gmail.com">samyakchy1@gmail.com</a>
+        <a href="https://github.com/immsamyak" target="_blank" rel="noopener noreferrer">github.com/immsamyak</a>
+        <a href="https://www.linkedin.com/in/samyakchy/" target="_blank" rel="noopener noreferrer">linkedin.com/in/samyakchy</a>
+        <a href="https://www.upwork.com/freelancers/~017010af70d435bc3f" target="_blank" rel="noopener noreferrer">Upwork</a>
+        <a href="https://www.fiverr.com/alvysamy/" target="_blank" rel="noopener noreferrer">Fiverr</a>
+      </div>
+      <form class="contact-form" action="https://formspree.io/f/xblyknaw" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="email" name="_replyto" placeholder="Email" required>
+        <textarea name="message" placeholder="Project details" rows="4" required></textarea>
+        <button type="submit" class="btn-amber" style="width:100%">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>Samyak Chaudhary — Full-Stack Developer — Kathmandu, Nepal</p>
+</footer>
+
+</body>
+</html>
