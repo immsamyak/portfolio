@@ -19,31 +19,30 @@ const About = () => {
   ];
 
   const workflow = [
-    { num: '01', title: 'Requirements Analysis', description: 'Comprehensive project assessment, technical requirements gathering, and solution architecture planning.' },
-    { num: '02', title: 'Development & Implementation', description: 'Agile development using modern frameworks with continuous integration, testing, and client communication.' },
-    { num: '03', title: 'Deployment & Maintenance', description: 'Production deployment, performance optimization, and ongoing technical support and maintenance.' },
+    { num: '01', title: 'Requirements Analysis', description: 'Comprehensive project assessment, technical requirements gathering, and solution architecture planning.', accent: 'text-shocking-green' },
+    { num: '02', title: 'Development & Implementation', description: 'Agile development using modern frameworks with continuous integration, testing, and client communication.', accent: 'text-fiery-orange' },
+    { num: '03', title: 'Deployment & Maintenance', description: 'Production deployment, performance optimization, and ongoing technical support.', accent: 'text-digital-violet' },
   ];
 
   return (
     <div>
       {/* Hero */}
-      <section className="pt-20 pb-section px-6 lg:px-8">
-        <div className="max-w-[1080px] mx-auto">
-          <p className="font-mono text-xs text-steel mb-2">// about</p>
-          <h1 className="text-4xl tracking-heading mb-2">About Me</h1>
-          <p className="text-steel">Full-Stack Developer / Cybersecurity Student / Technology Specialist</p>
+      <section className="pt-24 pb-16 px-6">
+        <div className="max-w-[1200px] mx-auto">
+          <h1 className="text-heading-lg font-semibold text-frosted-canvas mb-4">About Me</h1>
+          <p className="text-body text-faded-steel">Full-Stack Developer / Cybersecurity Student / Technology Specialist</p>
         </div>
       </section>
 
       {/* Bio */}
-      <section className="py-section px-6 lg:px-8 bg-snow">
-        <div className="max-w-[1080px] mx-auto grid md:grid-cols-[2fr_1fr] gap-10">
-          <div className="space-y-4 text-base leading-relaxed">
-            <p>I am Samyak Chaudhary, a dedicated full-stack developer with over 3 years of experience in web and mobile application development, complemented by 2+ years of successful freelancing. I specialize in creating scalable SaaS solutions, cross-platform mobile applications, and enterprise-grade web systems.</p>
-            <p>Currently pursuing Bachelor of Computer Science & IT with a specialization in Cybersecurity and Networking at Lincoln University College, Malaysia. This academic foundation strengthens my technical expertise in secure application development.</p>
-            <p>My expertise spans Flutter mobile development, Laravel web applications, MERN stack solutions, and modern DevOps practices. I have successfully delivered projects ranging from taxi booking systems to e-learning platforms and financial management software.</p>
+      <section className="py-16 px-6 border-t border-deep-graphite">
+        <div className="max-w-[1200px] mx-auto grid md:grid-cols-[2fr_1fr] gap-12">
+          <div className="space-y-5 text-body text-faded-steel">
+            <p>I am <span className="text-frosted-canvas">Samyak Chaudhary</span>, a dedicated full-stack developer with over 3 years of experience in web and mobile application development, complemented by 2+ years of successful freelancing.</p>
+            <p>I specialize in creating scalable SaaS solutions, cross-platform mobile applications, and enterprise-grade web systems. Currently pursuing Bachelor of Computer Science with a specialization in <span className="text-frosted-canvas">Cybersecurity and Networking</span> at Lincoln University College, Malaysia.</p>
+            <p>My expertise spans Flutter mobile development, Laravel web applications, MERN stack solutions, and modern DevOps practices.</p>
           </div>
-          <ul className="space-y-0">
+          <div className="border border-deep-graphite rounded-card p-4">
             {[
               ['Location', 'Kathmandu, Nepal'],
               ['Study', 'Malaysia'],
@@ -51,26 +50,25 @@ const About = () => {
               ['Experience', '3+ years'],
               ['Availability', 'Remote worldwide'],
             ].map(([k, v]) => (
-              <li key={k} className="flex justify-between py-3 border-b border-powder font-mono text-xs">
-                <span className="text-steel">{k}</span>
-                <span className="text-charcoal">{v}</span>
-              </li>
+              <div key={k} className="flex justify-between py-3 border-b border-deep-graphite last:border-0">
+                <span className="text-caption text-faded-steel">{k}</span>
+                <span className="text-caption text-frosted-canvas">{v}</span>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       </section>
 
       {/* Workflow */}
-      <section className="py-section px-6 lg:px-8">
-        <div className="max-w-[1080px] mx-auto">
-          <p className="font-mono text-xs text-steel mb-2">// process</p>
-          <h2 className="text-2xl tracking-heading mb-10">Development Process</h2>
-          <div className="grid md:grid-cols-3 gap-6">
+      <section className="py-16 px-6 border-t border-deep-graphite">
+        <div className="max-w-[1200px] mx-auto">
+          <h2 className="text-heading font-semibold text-frosted-canvas mb-12">Development Process</h2>
+          <div className="grid md:grid-cols-3 gap-4">
             {workflow.map((w) => (
-              <div key={w.num}>
-                <div className="text-5xl leading-[0.85] tracking-display text-mercury mb-3">{w.num}</div>
-                <h3 className="text-base mb-2">{w.title}</h3>
-                <p className="text-sm text-steel">{w.description}</p>
+              <div key={w.num} className="p-4 border border-deep-graphite rounded-card">
+                <span className={`text-heading-lg font-semibold ${w.accent} opacity-40`}>{w.num}</span>
+                <h3 className="text-subheading font-semibold text-frosted-canvas mt-4 mb-2">{w.title}</h3>
+                <p className="text-body-sm text-faded-steel">{w.description}</p>
               </div>
             ))}
           </div>
@@ -78,15 +76,14 @@ const About = () => {
       </section>
 
       {/* Skills */}
-      <section className="py-section px-6 lg:px-8 bg-snow">
-        <div className="max-w-[1080px] mx-auto">
-          <p className="font-mono text-xs text-steel mb-2">// technical expertise</p>
-          <h2 className="text-2xl tracking-heading mb-10">Skills</h2>
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-0">
+      <section className="py-16 px-6 border-t border-deep-graphite">
+        <div className="max-w-[1200px] mx-auto">
+          <h2 className="text-heading font-semibold text-frosted-canvas mb-12">Technical Expertise</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
             {skills.map((s) => (
-              <div key={s.name} className="flex justify-between items-center py-3 border-b border-powder">
-                <span className="text-sm">{s.name}</span>
-                <span className="font-mono text-[11px] text-steel">{s.level}</span>
+              <div key={s.name} className="flex justify-between items-center py-3 px-4 border border-deep-graphite rounded-card">
+                <span className="text-body-sm text-frosted-canvas">{s.name}</span>
+                <span className={`text-caption ${s.level === 'Advanced' ? 'text-shocking-green' : s.level === 'Intermediate' ? 'text-faded-steel' : 'text-deep-graphite'}`}>{s.level}</span>
               </div>
             ))}
           </div>
