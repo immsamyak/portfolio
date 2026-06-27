@@ -16,8 +16,8 @@ const Header = () => {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-absolute-zero/90 backdrop-blur-md border-b border-deep-graphite">
-        <div className="max-w-[1200px] mx-auto px-6 flex items-center justify-between h-16">
+      <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-[800px] z-50 bg-absolute-zero/60 backdrop-blur-xl border border-deep-graphite/40 rounded-pill shadow-2xl">
+        <div className="px-6 flex items-center justify-between h-14">
           <Link to="/" className="text-frosted-canvas font-semibold text-body-sm tracking-body-sm">
             Samyak.
           </Link>
@@ -35,7 +35,7 @@ const Header = () => {
             ))}
             <Link
               to="/contact"
-              className="text-caption text-frosted-canvas border border-frosted-canvas rounded-pill px-6 py-2 hover:bg-frosted-canvas hover:text-absolute-zero transition-colors"
+              className="text-caption text-frosted-canvas border border-frosted-canvas/30 rounded-pill px-5 py-1.5 hover:bg-frosted-canvas hover:text-absolute-zero hover:shadow-[0_0_20px_rgba(255,252,225,0.2)] transition-all duration-300"
             >
               Get in touch
             </Link>
@@ -55,7 +55,7 @@ const Header = () => {
         </div>
       </header>
       {open && (
-        <div className="md:hidden fixed inset-x-0 top-16 z-40 bg-absolute-zero border-b border-deep-graphite p-6 flex flex-col gap-4">
+        <div className="md:hidden fixed inset-x-4 top-24 z-40 bg-absolute-zero/90 backdrop-blur-lg border border-deep-graphite/40 rounded-card p-6 flex flex-col gap-4 shadow-2xl">
           {links.map((l) => (
             <Link key={l.name} to={l.path} className={`text-body-sm ${location.pathname === l.path ? 'text-frosted-canvas' : 'text-faded-steel'}`}>
               {l.name}

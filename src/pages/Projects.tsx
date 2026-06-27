@@ -1,77 +1,89 @@
 import { useState } from 'react';
 import Button from '../components/Button';
+import FadeIn from '../components/ui/FadeIn';
 
 const Projects = () => {
   const [filter, setFilter] = useState('All');
 
   const projects = [
-    { title: 'Khari Ride', category: 'Mobile App', description: 'Taxi-driving app for real-time ride booking and management.', tools: 'Flutter / Firebase / Dart' },
-    { title: 'PubFlow', category: 'SaaS', description: 'Financial management software for pubs and hotels with POS integration.', tools: 'Laravel / Vue.js / MySQL' },
-    { title: 'Mero Learning LMS', category: 'Web & Mobile', description: 'eLearning platform for online courses with instructor monetization.', tools: 'Flutter / Laravel / Firebase' },
-    { title: 'ISCILLA', category: 'Web App', description: 'Multi-professional networking platform for startup founders.', tools: 'MERN Stack / Node.js / React' },
-    { title: 'Apartment Management', category: 'Mobile App', description: 'Flutter mobile app with Laravel admin panel for apartment management.', tools: 'Flutter / Laravel' },
-    { title: 'E-commerce Platform', category: 'Web App', description: 'MERN stack e-commerce platform with full shopping features.', tools: 'MERN Stack / Node.js / React' },
-    { title: 'SMS Platform', category: 'Web App', description: 'Bulk SMS, scheduling, and OTP APIs for businesses in Nepal.', tools: 'Laravel / PHP / MySQL' },
-    { title: 'Social Platform', category: 'Mobile App', description: 'Posts, likes, comments, voice messages, and interest-based features.', tools: 'Flutter / Laravel' },
-    { title: 'Exam Simulation', category: 'Mobile App', description: 'OMR navigation, timer, past papers, real-time scores, leaderboard.', tools: 'Flutter / GetX / Firebase' },
-    { title: 'Class Track', category: 'Desktop App', description: 'Student Management System with records, attendance, marks, reports.', tools: 'Python / MySQL' },
+    { title: 'Khari Ride', category: 'Mobile App', description: 'Taxi-driving app for real-time ride booking and management with complex geographic routing.', tools: 'Flutter / Firebase / Dart' },
+    { title: 'PubFlow', category: 'SaaS', description: 'Financial management software for pubs and hotels with deep POS hardware integration and offline sync capabilities.', tools: 'Laravel / Vue.js / MySQL' },
+    { title: 'Mero Learning LMS', category: 'Web & Mobile', description: 'Enterprise eLearning platform for online courses with multi-tier instructor monetization and video DRM.', tools: 'Flutter / Laravel / Firebase' },
+    { title: 'ISCILLA', category: 'Web App', description: 'Multi-professional networking platform specifically designed for tech startup founders to find co-founders.', tools: 'MERN Stack / Node.js / React' },
+    { title: 'Apartment Management', category: 'Mobile App', description: 'Comprehensive mobile app with an admin panel for seamless apartment management, billing, and maintenance requests.', tools: 'Flutter / Laravel' },
+    { title: 'E-commerce Platform', category: 'Web App', description: 'High-performance e-commerce platform with dynamic inventory management and payment gateway aggregation.', tools: 'MERN Stack / Node.js / React' },
+    { title: 'SMS Platform', category: 'Web App', description: 'High-throughput bulk SMS, scheduling, and automated OTP verification APIs for businesses in Nepal.', tools: 'Laravel / PHP / MySQL' },
+    { title: 'Social Platform', category: 'Mobile App', description: 'Community-driven app featuring posts, likes, voice messages, and algorithmic interest-based feeds.', tools: 'Flutter / Laravel' },
+    { title: 'Exam Simulation', category: 'Mobile App', description: 'Real-time OMR navigation, precision timer, past papers, instant scoring, and global leaderboards.', tools: 'Flutter / GetX / Firebase' },
+    { title: 'Class Track', category: 'Desktop App', description: 'Offline-first Student Management System tracking attendance, academic marks, and generating detailed reports.', tools: 'Python / MySQL' },
   ];
 
   const categories = ['All', 'Mobile App', 'Web App', 'Web & Mobile', 'SaaS', 'Desktop App'];
   const filtered = filter === 'All' ? projects : projects.filter(p => p.category === filter);
 
-  const accents = ['text-shocking-green', 'text-neon-pink', 'text-fiery-orange', 'text-digital-violet', 'text-aqua-glow', 'text-mint-burst'];
-
   return (
-    <div>
+    <div className="pt-20">
       {/* Hero */}
-      <section className="pt-24 pb-16 px-6">
-        <div className="max-w-[1200px] mx-auto">
-          <h1 className="text-heading-lg font-semibold text-frosted-canvas mb-4">Projects</h1>
-          <p className="text-body text-faded-steel">Applications built for clients and personal projects.</p>
+      <section className="py-24 px-6 relative">
+        <div className="max-w-[1200px] mx-auto relative z-10">
+          <FadeIn>
+            <h1 className="text-display font-semibold text-frosted-canvas mb-6 leading-[0.9]">Projects<span className="text-shocking-green">.</span></h1>
+            <p className="text-subheading text-faded-steel max-w-2xl">Digital applications built for clients, startups, and personal exploration over the years.</p>
+          </FadeIn>
         </div>
       </section>
 
       {/* Filters */}
-      <section className="px-6 pb-8">
-        <div className="max-w-[1200px] mx-auto flex flex-wrap gap-2">
-          {categories.map((cat) => (
-            <button
-              key={cat}
-              onClick={() => setFilter(cat)}
-              className={`text-caption rounded-pill px-5 py-2 border transition-colors ${
-                filter === cat
-                  ? 'border-frosted-canvas text-absolute-zero bg-frosted-canvas'
-                  : 'border-deep-graphite text-faded-steel hover:border-frosted-canvas hover:text-frosted-canvas'
-              }`}
-            >
-              {cat}
-            </button>
-          ))}
+      <section className="px-6 pb-12 sticky top-24 z-30 pointer-events-none">
+        <div className="max-w-[1200px] mx-auto pointer-events-auto overflow-x-auto no-scrollbar py-2">
+          <div className="flex gap-2 w-max">
+            {categories.map((cat) => (
+              <button
+                key={cat}
+                onClick={() => setFilter(cat)}
+                className={`text-caption rounded-pill px-6 py-2.5 transition-all duration-300 border ${
+                  filter === cat
+                    ? 'border-frosted-canvas text-absolute-zero bg-frosted-canvas shadow-[0_0_15px_rgba(255,252,225,0.4)]'
+                    : 'border-deep-graphite/60 text-faded-steel bg-absolute-zero/80 backdrop-blur-md hover:border-frosted-canvas hover:text-frosted-canvas'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* Grid */}
-      <section className="pb-20 px-6">
-        <div className="max-w-[1200px] mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {/* Masonry Grid */}
+      <section className="pb-32 px-6">
+        <div className="max-w-[1200px] mx-auto columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
           {filtered.map((p, i) => (
-            <div key={p.title} className="p-4 rounded-card border border-deep-graphite">
-              <span className={`text-caption ${accents[i % accents.length]} uppercase tracking-wide`}>{p.category}</span>
-              <h3 className="text-subheading font-semibold text-frosted-canvas mt-3 mb-2">{p.title}</h3>
-              <p className="text-body-sm text-faded-steel mb-4">{p.description}</p>
-              <p className="text-caption text-faded-steel">{p.tools}</p>
+            <div key={p.title} className="break-inside-avoid">
+              <FadeIn delay={0.1 * (i % 3)}>
+                <div className="p-8 rounded-card border border-deep-graphite/40 bg-absolute-zero/50 backdrop-blur-sm hover:bg-absolute-zero hover:border-shocking-green/30 transition-all duration-300 group">
+                  <span className="text-caption text-shocking-green uppercase tracking-wide font-medium">{p.category}</span>
+                  <h3 className="text-heading-sm font-semibold text-frosted-canvas mt-3 mb-4 group-hover:translate-x-1 transition-transform">{p.title}</h3>
+                  <p className="text-body text-faded-steel mb-6">{p.description}</p>
+                  <div className="pt-6 border-t border-deep-graphite/30">
+                    <p className="text-caption text-faded-steel font-mono">{p.tools}</p>
+                  </div>
+                </div>
+              </FadeIn>
             </div>
           ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-20 px-6 border-t border-deep-graphite">
-        <div className="max-w-[600px] mx-auto text-center">
-          <h2 className="text-heading font-semibold text-frosted-canvas mb-4">Have a project in mind?</h2>
-          <p className="text-body text-faded-steel mb-10">Let's work together to create something great.</p>
-          <Button to="/contact">Start a project</Button>
-        </div>
+      <section className="py-32 px-6 border-t border-deep-graphite/40 bg-absolute-zero relative overflow-hidden">
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-shocking-green/5 via-absolute-zero to-absolute-zero pointer-events-none" />
+        <FadeIn>
+          <div className="max-w-[600px] mx-auto text-center relative z-10">
+            <h2 className="text-heading-lg font-semibold text-frosted-canvas mb-6 leading-tight">Have a project in mind?</h2>
+            <p className="text-body text-faded-steel mb-12">Let's work together to build something exceptional.</p>
+            <Button to="/contact">Start a project</Button>
+          </div>
+        </FadeIn>
       </section>
     </div>
   );

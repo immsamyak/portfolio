@@ -16,19 +16,14 @@ export default {
     },
     extend: {
       fontFamily: {
-        mori: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        geist: ['Geist', 'sans-serif'],
       },
       colors: {
         'absolute-zero': '#0e100f',
         'frosted-canvas': '#fffce1',
         'faded-steel': '#7c7c6f',
         'deep-graphite': '#42433d',
-        'neon-pink': '#fec5fb',
-        'fiery-orange': '#ff8709',
         'shocking-green': '#0ae448',
-        'digital-violet': '#9d95ff',
-        'aqua-glow': '#00bae2',
-        'mint-burst': '#abff84',
       },
       borderRadius: {
         pill: '100px',
@@ -45,7 +40,7 @@ export default {
         'caption': '-0.14px',
       },
       fontSize: {
-        'display': ['clamp(80px,15vw,224px)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
+        'display': ['clamp(64px, 8vw, 140px)', { lineHeight: '0.9', letterSpacing: '-0.02em' }],
         'heading-lg': ['66px', { lineHeight: '1.05', letterSpacing: '-1.32px' }],
         'heading': ['44px', { lineHeight: '1.15', letterSpacing: '-0.88px' }],
         'heading-sm': ['32px', { lineHeight: '1.2', letterSpacing: '-0.64px' }],
