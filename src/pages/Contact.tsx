@@ -13,7 +13,7 @@ const Contact = () => {
     e.preventDefault();
     setStatus('sending');
     try {
-      const res = await fetch('https://formspree.io/f/xblyknaw', {
+      const res = await fetch('https://formspree.io/f/meebkjqy', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({ name: formData.name, message: formData.message, _replyto: formData.email }),
