@@ -1,114 +1,57 @@
 import FadeIn from '../components/ui/FadeIn';
+import { WordsPullUpMultiStyle } from '../components/ui/WordsPullUpMultiStyle';
+import { ScrollRevealText } from '../components/ui/ScrollRevealText';
 
 const About = () => {
   const skills = [
     { name: 'Flutter', level: 'Advanced' },
-    { name: 'Dart', level: 'Advanced' },
     { name: 'Laravel', level: 'Advanced' },
     { name: 'MERN Stack', level: 'Intermediate' },
-    { name: 'React', level: 'Intermediate' },
-    { name: 'Node.js', level: 'Intermediate' },
-    { name: 'PHP', level: 'Intermediate' },
-    { name: 'MySQL', level: 'Intermediate' },
-    { name: 'Firebase', level: 'Intermediate' },
-    { name: 'Java', level: 'Intermediate' },
-    { name: 'Kotlin', level: 'Intermediate' },
+    { name: 'Cybersecurity', level: 'Fundamentals' },
     { name: 'API Development', level: 'Intermediate' },
     { name: 'Server & Cloud', level: 'Intermediate' },
-    { name: 'Cybersecurity', level: 'Fundamentals' },
-    { name: 'AI Integration', level: 'Intermediate' },
-    { name: 'Presentation Design', level: 'Advanced' },
-  ];
-
-  const workflow = [
-    { num: '01', title: 'Requirements Analysis', description: 'Comprehensive project assessment, technical requirements gathering, and solution architecture planning.' },
-    { num: '02', title: 'Development & Implementation', description: 'Agile development using modern frameworks with continuous integration, testing, and client communication.' },
-    { num: '03', title: 'Deployment & Maintenance', description: 'Production deployment, performance optimization, and ongoing technical support.' },
   ];
 
   return (
-    <div className="pt-20">
-      {/* Hero */}
-      <section className="py-24 px-6 relative">
-        <div className="max-w-[1200px] mx-auto relative z-10">
-          <FadeIn>
-            <h1 className="text-display font-semibold text-frosted-canvas mb-6 leading-[0.9]">About Me<span className="text-shocking-green">.</span></h1>
-            <p className="text-subheading text-faded-steel max-w-2xl">Full-Stack Developer / Cybersecurity Student / Technology Specialist</p>
-          </FadeIn>
-        </div>
-      </section>
+    <div className="pt-24 pb-12 px-4 md:px-6 min-h-screen bg-black">
+      {/* Inner Card container matching Prisma style */}
+      <div className="max-w-6xl mx-auto bg-[#101010] rounded-[2rem] p-8 md:p-16 lg:p-24 flex flex-col items-center justify-center text-center min-h-[80vh]">
+        
+        <FadeIn>
+          <span className="text-primary text-[10px] sm:text-xs uppercase tracking-widest font-medium mb-12 block">
+            Cybersecurity & Development
+          </span>
+        </FadeIn>
 
-      {/* Bio */}
-      <section className="py-24 px-6 border-t border-deep-graphite/40">
-        <div className="max-w-[1200px] mx-auto grid md:grid-cols-[2fr_1fr] gap-12">
-          <div className="space-y-6 text-body text-faded-steel">
-            <FadeIn delay={0.1}>
-              <p>I am <span className="text-frosted-canvas">Samyak Chaudhary</span>, a dedicated full-stack developer with over 3 years of experience in web and mobile application development, complemented by 2+ years of successful freelancing.</p>
-            </FadeIn>
-            <FadeIn delay={0.2}>
-              <p>I specialize in creating scalable SaaS solutions, cross-platform mobile applications, and enterprise-grade web systems. Currently pursuing a Bachelor of Computer Science with a specialization in <span className="text-frosted-canvas">Cybersecurity and Networking</span> at Lincoln University College, Malaysia.</p>
-            </FadeIn>
-            <FadeIn delay={0.3}>
-              <p>My expertise spans Flutter mobile development, Laravel web applications, MERN stack solutions, and modern DevOps practices.</p>
-            </FadeIn>
-          </div>
-          <FadeIn delay={0.4} direction="left">
-            <div className="border border-deep-graphite/40 bg-absolute-zero/50 backdrop-blur-md rounded-card p-6 shadow-2xl">
-              {[
-                ['Location', 'Kathmandu, Nepal'],
-                ['Study', 'Malaysia'],
-                ['Focus', 'Cybersecurity'],
-                ['Experience', '3+ years'],
-                ['Availability', 'Remote worldwide'],
-              ].map(([k, v]) => (
-                <div key={k} className="flex justify-between py-4 border-b border-deep-graphite/40 last:border-0">
-                  <span className="text-caption text-faded-steel tracking-wide uppercase">{k}</span>
-                  <span className="text-caption text-frosted-canvas font-medium">{v}</span>
-                </div>
+        <WordsPullUpMultiStyle 
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl max-w-4xl mx-auto leading-[0.95] sm:leading-[0.9] text-primary"
+          segments={[
+            { text: "I am Samyak Chaudhary,", className: "font-normal" },
+            { text: "a full-stack developer.", className: "font-serif italic text-primary" },
+            { text: "I have skills in Flutter, Laravel, and enterprise architecture.", className: "font-normal" }
+          ]}
+        />
+
+        <div className="mt-16 sm:mt-24 max-w-2xl mx-auto">
+          <ScrollRevealText 
+            className="text-primary text-xs sm:text-sm md:text-base leading-relaxed"
+            text="Over the last 3 years, I have worked extensively with clients across the globe, crafting cross-platform applications and robust web platforms. Currently pursuing a specialization in Cybersecurity, I am passionate about writing secure, performant code that solves real-world challenges. Together, we can build digital solutions that not only look cinematic, but scale gracefully under pressure."
+          />
+        </div>
+
+        <div className="mt-24 w-full max-w-4xl border-t border-white/5 pt-16">
+          <FadeIn>
+            <h3 className="text-sm uppercase tracking-widest text-primary/50 mb-8">Core Expertise</h3>
+            <div className="flex flex-wrap justify-center gap-4">
+              {skills.map((s) => (
+                <span key={s.name} className="px-6 py-3 rounded-full border border-white/10 text-primary text-sm hover:bg-white/5 transition-colors">
+                  {s.name}
+                </span>
               ))}
             </div>
           </FadeIn>
         </div>
-      </section>
-
-      {/* Workflow */}
-      <section className="py-32 px-6 border-t border-deep-graphite/40 bg-absolute-zero/30">
-        <div className="max-w-[1200px] mx-auto">
-          <FadeIn>
-            <h2 className="text-heading-lg font-semibold text-frosted-canvas mb-16">Development Process</h2>
-          </FadeIn>
-          <div className="grid md:grid-cols-3 gap-6">
-            {workflow.map((w, i) => (
-              <FadeIn key={w.num} delay={i * 0.15}>
-                <div className="p-10 border border-deep-graphite/40 bg-absolute-zero rounded-card hover:border-shocking-green/30 transition-colors h-full">
-                  <span className="text-heading font-semibold text-shocking-green opacity-20">{w.num}</span>
-                  <h3 className="text-heading-sm font-semibold text-frosted-canvas mt-8 mb-4">{w.title}</h3>
-                  <p className="text-body text-faded-steel">{w.description}</p>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Skills */}
-      <section className="py-32 px-6 border-t border-deep-graphite/40">
-        <div className="max-w-[1200px] mx-auto">
-          <FadeIn>
-            <h2 className="text-heading-lg font-semibold text-frosted-canvas mb-16">Technical Expertise</h2>
-          </FadeIn>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {skills.map((s, i) => (
-              <FadeIn key={s.name} delay={(i % 4) * 0.1}>
-                <div className="flex justify-between items-center py-4 px-6 border border-deep-graphite/40 rounded-card bg-absolute-zero hover:border-frosted-canvas/30 transition-colors">
-                  <span className="text-body-sm text-frosted-canvas">{s.name}</span>
-                  <span className={`text-caption uppercase tracking-wide ${s.level === 'Advanced' ? 'text-shocking-green' : s.level === 'Intermediate' ? 'text-faded-steel' : 'text-deep-graphite'}`}>{s.level}</span>
-                </div>
-              </FadeIn>
-            ))}
-          </div>
-        </div>
-      </section>
+      </div>
     </div>
   );
 };

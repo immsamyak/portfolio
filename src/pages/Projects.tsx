@@ -1,6 +1,9 @@
 import { useState } from 'react';
-import Button from '../components/Button';
+import { Link } from 'react-router-dom';
 import FadeIn from '../components/ui/FadeIn';
+import { WordsPullUpMultiStyle } from '../components/ui/WordsPullUpMultiStyle';
+import { motion } from 'framer-motion';
+import { ArrowRight } from 'lucide-react';
 
 const Projects = () => {
   const [filter, setFilter] = useState('All');
@@ -22,29 +25,35 @@ const Projects = () => {
   const filtered = filter === 'All' ? projects : projects.filter(p => p.category === filter);
 
   return (
-    <div className="pt-20">
+    <div className="pt-24 min-h-screen bg-black text-primary">
+      {/* Background Noise */}
+      <div className="bg-noise opacity-[0.15]" />
+
       {/* Hero */}
-      <section className="py-24 px-6 relative">
-        <div className="max-w-[1200px] mx-auto relative z-10">
-          <FadeIn>
-            <h1 className="text-display font-semibold text-frosted-canvas mb-6 leading-[0.9]">Projects<span className="text-shocking-green">.</span></h1>
-            <p className="text-subheading text-faded-steel max-w-2xl">Digital applications built for clients, startups, and personal exploration over the years.</p>
-          </FadeIn>
+      <section className="py-24 px-4 md:px-6 relative z-10">
+        <div className="max-w-7xl mx-auto">
+          <WordsPullUpMultiStyle 
+            className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-normal max-w-4xl"
+            segments={[
+              { text: "Digital applications built for", className: "text-primary" },
+              { text: "clients and startups.", className: "font-serif italic text-primary" }
+            ]}
+          />
         </div>
       </section>
 
       {/* Filters */}
-      <section className="px-6 pb-12 sticky top-24 z-30 pointer-events-none">
-        <div className="max-w-[1200px] mx-auto pointer-events-auto overflow-x-auto no-scrollbar py-2">
+      <section className="px-4 md:px-6 pb-12 sticky top-20 z-30 pointer-events-none">
+        <div className="max-w-7xl mx-auto pointer-events-auto overflow-x-auto no-scrollbar py-2">
           <div className="flex gap-2 w-max">
             {categories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setFilter(cat)}
-                className={`text-caption rounded-pill px-6 py-2.5 transition-all duration-300 border ${
+                className={`text-sm rounded-full px-6 py-2.5 transition-all duration-300 border ${
                   filter === cat
-                    ? 'border-frosted-canvas text-absolute-zero bg-frosted-canvas shadow-[0_0_15px_rgba(255,252,225,0.4)]'
-                    : 'border-deep-graphite/60 text-faded-steel bg-absolute-zero/80 backdrop-blur-md hover:border-frosted-canvas hover:text-frosted-canvas'
+                    ? 'border-primary text-black bg-primary'
+                    : 'border-white/10 text-gray-400 bg-black/80 backdrop-blur-md hover:border-primary/50 hover:text-primary'
                 }`}
               >
                 {cat}
@@ -55,33 +64,40 @@ const Projects = () => {
       </section>
 
       {/* Masonry Grid */}
-      <section className="pb-32 px-6">
-        <div className="max-w-[1200px] mx-auto columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
+      <section className="pb-32 px-4 md:px-6 relative z-10">
+        <div className="max-w-7xl mx-auto columns-1 md:columns-2 lg:columns-3 gap-4 md:gap-6 space-y-4 md:space-y-6">
           {filtered.map((p, i) => (
             <div key={p.title} className="break-inside-avoid">
-              <FadeIn delay={0.1 * (i % 3)}>
-                <div className="p-8 rounded-card border border-deep-graphite/40 bg-absolute-zero/50 backdrop-blur-sm hover:bg-absolute-zero hover:border-shocking-green/30 transition-all duration-300 group">
-                  <span className="text-caption text-shocking-green uppercase tracking-wide font-medium">{p.category}</span>
-                  <h3 className="text-heading-sm font-semibold text-frosted-canvas mt-3 mb-4 group-hover:translate-x-1 transition-transform">{p.title}</h3>
-                  <p className="text-body text-faded-steel mb-6">{p.description}</p>
-                  <div className="pt-6 border-t border-deep-graphite/30">
-                    <p className="text-caption text-faded-steel font-mono">{p.tools}</p>
-                  </div>
+              <motion.div 
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1 * (i % 5), duration: 0.5 }}
+                className="bg-[#101010] p-8 rounded-2xl border border-white/5 hover:bg-[#1a1a1a] transition-colors group"
+              >
+                <span className="text-xs text-primary/50 uppercase tracking-widest font-medium block mb-4">{p.category}</span>
+                <h3 className="text-2xl font-normal text-primary mb-4 group-hover:text-white transition-colors">{p.title}</h3>
+                <p className="text-sm text-gray-400 mb-8 leading-relaxed">{p.description}</p>
+                <div className="pt-6 border-t border-white/5">
+                  <p className="text-xs text-primary/40 font-mono tracking-tight">{p.tools}</p>
                 </div>
-              </FadeIn>
+              </motion.div>
             </div>
           ))}
         </div>
       </section>
 
       {/* CTA */}
-      <section className="py-32 px-6 border-t border-deep-graphite/40 bg-absolute-zero relative overflow-hidden">
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_bottom,_var(--tw-gradient-stops))] from-shocking-green/5 via-absolute-zero to-absolute-zero pointer-events-none" />
+      <section className="py-32 px-4 md:px-6 relative z-10">
         <FadeIn>
-          <div className="max-w-[600px] mx-auto text-center relative z-10">
-            <h2 className="text-heading-lg font-semibold text-frosted-canvas mb-6 leading-tight">Have a project in mind?</h2>
-            <p className="text-body text-faded-steel mb-12">Let's work together to build something exceptional.</p>
-            <Button to="/contact">Start a project</Button>
+          <div className="max-w-4xl mx-auto text-center bg-[#101010] p-12 md:p-24 rounded-[2rem] border border-white/5">
+            <h2 className="text-4xl md:text-5xl font-normal text-primary mb-6">Have a project in mind?</h2>
+            <p className="text-base text-gray-400 mb-12">Let's work together to build something exceptional.</p>
+            <Link to="/contact" className="group inline-flex items-center bg-primary rounded-full pl-6 pr-2 py-2 gap-4 hover:gap-6 transition-all duration-300">
+              <span className="text-black font-medium text-sm sm:text-base whitespace-nowrap">Start a project</span>
+              <div className="bg-black rounded-full w-9 h-9 sm:w-10 sm:h-10 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300">
+                <ArrowRight className="text-primary w-4 h-4 sm:w-5 sm:h-5" />
+              </div>
+            </Link>
           </div>
         </FadeIn>
       </section>

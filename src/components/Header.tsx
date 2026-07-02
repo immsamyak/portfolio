@@ -8,6 +8,7 @@ const Header = () => {
   useEffect(() => { setOpen(false); }, [location.pathname]);
 
   const links = [
+    { name: 'Home', path: '/' },
     { name: 'About', path: '/about' },
     { name: 'Services', path: '/services' },
     { name: 'Projects', path: '/projects' },
@@ -16,32 +17,26 @@ const Header = () => {
 
   return (
     <>
-      <header className="fixed top-6 left-1/2 -translate-x-1/2 w-[calc(100%-48px)] max-w-[800px] z-50 bg-absolute-zero/60 backdrop-blur-xl border border-deep-graphite/40 rounded-pill shadow-2xl">
-        <div className="px-6 flex items-center justify-between h-14">
-          <Link to="/" className="text-frosted-canvas font-semibold text-body-sm tracking-body-sm">
-            Samyak.
-          </Link>
-          <nav className="hidden md:flex items-center gap-6">
+      <header className="absolute top-0 left-1/2 -translate-x-1/2 z-50">
+        <div className="bg-black rounded-b-2xl md:rounded-b-3xl px-4 py-2 md:px-8 flex items-center gap-3 sm:gap-6 md:gap-12 lg:gap-14 shadow-2xl">
+          <nav className="hidden md:flex items-center gap-3 sm:gap-6 md:gap-12 lg:gap-14">
             {links.map((l) => (
               <Link
                 key={l.name}
                 to={l.path}
-                className={`text-caption tracking-caption transition-colors ${
-                  location.pathname === l.path ? 'text-frosted-canvas' : 'text-faded-steel hover:text-frosted-canvas'
-                }`}
+                className="text-[10px] sm:text-xs md:text-sm transition-colors"
+                style={{
+                  color: location.pathname === l.path ? '#E1E0CC' : 'rgba(225, 224, 204, 0.8)'
+                }}
               >
                 {l.name}
               </Link>
             ))}
-            <Link
-              to="/contact"
-              className="text-caption text-frosted-canvas border border-frosted-canvas/30 rounded-pill px-5 py-1.5 hover:bg-frosted-canvas hover:text-absolute-zero hover:shadow-[0_0_20px_rgba(255,252,225,0.2)] transition-all duration-300"
-            >
-              Get in touch
-            </Link>
           </nav>
+
+          {/* Mobile Toggle */}
           <button
-            className="md:hidden text-frosted-canvas"
+            className="md:hidden text-primary"
             onClick={() => setOpen(!open)}
             aria-label="Toggle menu"
           >
@@ -54,10 +49,12 @@ const Header = () => {
           </button>
         </div>
       </header>
+
+      {/* Mobile Menu */}
       {open && (
-        <div className="md:hidden fixed inset-x-4 top-24 z-40 bg-absolute-zero/90 backdrop-blur-lg border border-deep-graphite/40 rounded-card p-6 flex flex-col gap-4 shadow-2xl">
+        <div className="md:hidden absolute inset-x-4 top-16 z-40 bg-[#101010] rounded-2xl p-6 flex flex-col gap-4 shadow-2xl border border-white/5">
           {links.map((l) => (
-            <Link key={l.name} to={l.path} className={`text-body-sm ${location.pathname === l.path ? 'text-frosted-canvas' : 'text-faded-steel'}`}>
+            <Link key={l.name} to={l.path} onClick={() => setOpen(false)} className={`text-sm ${location.pathname === l.path ? 'text-primary' : 'text-primary/70'}`}>
               {l.name}
             </Link>
           ))}
