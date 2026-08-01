@@ -9,16 +9,16 @@ const Projects = () => {
   const [filter, setFilter] = useState('All');
 
   const projects = [
-    { title: 'Khari Ride', category: 'Mobile App', description: 'Taxi-driving app for real-time ride booking and management with complex geographic routing.', tools: 'Flutter / Firebase / Dart' },
-    { title: 'PubFlow', category: 'SaaS', description: 'Financial management software for pubs and hotels with deep POS hardware integration and offline sync capabilities.', tools: 'Laravel / Vue.js / MySQL' },
-    { title: 'Mero Learning LMS', category: 'Web & Mobile', description: 'Enterprise eLearning platform for online courses with multi-tier instructor monetization and video DRM.', tools: 'Flutter / Laravel / Firebase' },
-    { title: 'ISCILLA', category: 'Web App', description: 'Multi-professional networking platform specifically designed for tech startup founders to find co-founders.', tools: 'MERN Stack / Node.js / React' },
-    { title: 'Apartment Management', category: 'Mobile App', description: 'Comprehensive mobile app with an admin panel for seamless apartment management, billing, and maintenance requests.', tools: 'Flutter / Laravel' },
-    { title: 'E-commerce Platform', category: 'Web App', description: 'High-performance e-commerce platform with dynamic inventory management and payment gateway aggregation.', tools: 'MERN Stack / Node.js / React' },
-    { title: 'SMS Platform', category: 'Web App', description: 'High-throughput bulk SMS, scheduling, and automated OTP verification APIs for businesses in Nepal.', tools: 'Laravel / PHP / MySQL' },
-    { title: 'Social Platform', category: 'Mobile App', description: 'Community-driven app featuring posts, likes, voice messages, and algorithmic interest-based feeds.', tools: 'Flutter / Laravel' },
-    { title: 'Exam Simulation', category: 'Mobile App', description: 'Real-time OMR navigation, precision timer, past papers, instant scoring, and global leaderboards.', tools: 'Flutter / GetX / Firebase' },
-    { title: 'Class Track', category: 'Desktop App', description: 'Offline-first Student Management System tracking attendance, academic marks, and generating detailed reports.', tools: 'Python / MySQL' },
+    { title: 'Khari Ride', category: 'Mobile App', description: 'Taxi-driving app for real-time ride booking and management with complex geographic routing.', tools: 'Flutter / Firebase / Dart', visibility: 'Private client project' },
+    { title: 'PubFlow', category: 'SaaS', description: 'Financial management software for pubs and hotels with deep POS hardware integration and offline sync capabilities.', tools: 'Laravel / Vue.js / MySQL', visibility: 'Private client project' },
+    { title: 'Mero Learning LMS', category: 'Web & Mobile', description: 'Enterprise eLearning platform for online courses with multi-tier instructor monetization and video DRM.', tools: 'Flutter / Laravel / Firebase', visibility: 'Private client project' },
+    { title: 'ISCILLA', category: 'Web App', description: 'Multi-professional networking platform specifically designed for tech startup founders to find co-founders.', tools: 'MERN Stack / Node.js / React', visibility: 'Private startup project' },
+    { title: 'Apartment Management', category: 'Mobile App', description: 'Comprehensive mobile app with an admin panel for seamless apartment management, billing, and maintenance requests.', tools: 'Flutter / Laravel', visibility: 'Private client project' },
+    { title: 'E-commerce Platform', category: 'Web App', description: 'High-performance e-commerce platform with dynamic inventory management and payment gateway aggregation.', tools: 'MERN Stack / Node.js / React', visibility: 'Private client project' },
+    { title: 'SMS Platform', category: 'Web App', description: 'High-throughput bulk SMS, scheduling, and automated OTP verification APIs for businesses in Nepal.', tools: 'Laravel / PHP / MySQL', visibility: 'Private client project' },
+    { title: 'Social Platform', category: 'Mobile App', description: 'Community-driven app featuring posts, likes, voice messages, and algorithmic interest-based feeds.', tools: 'Flutter / Laravel', visibility: 'Private client project' },
+    { title: 'Exam Simulation', category: 'Mobile App', description: 'Real-time OMR navigation, precision timer, past papers, instant scoring, and global leaderboards.', tools: 'Flutter / GetX / Firebase', visibility: 'Private educational project' },
+    { title: 'Class Track', category: 'Desktop App', description: 'Offline-first Student Management System tracking attendance, academic marks, and generating detailed reports.', tools: 'Python / MySQL', visibility: 'Private academic project' },
   ];
 
   const categories = ['All', 'Mobile App', 'Web App', 'Web & Mobile', 'SaaS', 'Desktop App'];
@@ -77,8 +77,23 @@ const Projects = () => {
                 <span className="text-xs text-primary/50 uppercase tracking-widest font-medium block mb-4">{p.category}</span>
                 <h3 className="text-2xl font-normal text-primary mb-4 group-hover:text-white transition-colors">{p.title}</h3>
                 <p className="text-sm text-gray-400 mb-8 leading-relaxed">{p.description}</p>
+                <p className="text-xs text-gray-500 mb-5">{p.visibility}</p>
                 <div className="pt-6 border-t border-white/5">
                   <p className="text-xs text-primary/40 font-mono tracking-tight">{p.tools}</p>
+                </div>
+                <div className="mt-6 flex items-center gap-4">
+                  <Link
+                    to={`/contact?project=${encodeURIComponent(p.title)}`}
+                    className="text-sm text-primary hover:text-white transition-colors"
+                  >
+                    Request demo
+                  </Link>
+                  <Link
+                    to={`/contact?project=${encodeURIComponent(p.title)}&type=case-study`}
+                    className="text-sm text-primary/70 hover:text-primary transition-colors"
+                  >
+                    Request case study
+                  </Link>
                 </div>
               </motion.div>
             </div>

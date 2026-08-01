@@ -51,22 +51,31 @@ const Contact = () => {
           <FadeIn delay={0.2}>
             <form onSubmit={handleSubmit} className="bg-[#101010] p-8 md:p-12 rounded-[2rem] border border-white/5 space-y-8">
               <div>
+                <label htmlFor="contact-name" className="text-xs uppercase tracking-widest text-primary/60 mb-3 block">
+                  Name
+                </label>
                 <input
-                  type="text" name="name" placeholder="Name" required
+                  id="contact-name" type="text" name="name" placeholder="Your full name" required autoComplete="name"
                   value={formData.name} onChange={handleChange}
                   className="w-full bg-transparent border-b border-white/10 text-primary text-base py-4 outline-none focus:border-primary transition-colors placeholder:text-gray-600"
                 />
               </div>
               <div>
+                <label htmlFor="contact-email" className="text-xs uppercase tracking-widest text-primary/60 mb-3 block">
+                  Email
+                </label>
                 <input
-                  type="email" name="email" placeholder="Email" required
+                  id="contact-email" type="email" name="email" placeholder="you@company.com" required autoComplete="email"
                   value={formData.email} onChange={handleChange}
                   className="w-full bg-transparent border-b border-white/10 text-primary text-base py-4 outline-none focus:border-primary transition-colors placeholder:text-gray-600"
                 />
               </div>
               <div>
+                <label htmlFor="contact-message" className="text-xs uppercase tracking-widest text-primary/60 mb-3 block">
+                  Project details
+                </label>
                 <textarea
-                  name="message" placeholder="Project details" required rows={4}
+                  id="contact-message" name="message" placeholder="Tell me what you want to build" required rows={4}
                   value={formData.message} onChange={handleChange}
                   className="w-full bg-transparent border-b border-white/10 text-primary text-base py-4 outline-none focus:border-primary transition-colors placeholder:text-gray-600 resize-none"
                 />
@@ -84,7 +93,8 @@ const Contact = () => {
                   <ArrowRight className="text-primary w-5 h-5" />
                 </div>
               </button>
-              {status === 'error' && <p className="text-xs text-red-400 mt-4">Something went wrong. Try again or email directly.</p>}
+              {status === 'sent' && <p className="text-xs text-green-400 mt-4" role="status" aria-live="polite">Thanks, your inquiry was sent successfully.</p>}
+              {status === 'error' && <p className="text-xs text-red-400 mt-4" role="alert">Something went wrong. Try again or email directly.</p>}
             </form>
           </FadeIn>
 
